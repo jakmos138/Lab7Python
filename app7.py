@@ -1,6 +1,5 @@
 import re
 import logging
-import json
 import sys
 from ipaddress import IPv4Address
 
@@ -13,6 +12,24 @@ configurations = {
     'linesAtOnce' : 10,
     'maxSize' : 2137 
 }
+
+def read_log_file(log_filename):
+    # Check if the log file exists
+    try:
+        configFile = open('lab.config', 'r')
+    except FileNotFoundError:
+        print('Log file not found. Exiting application.')
+        sys.exit()
+
+    # Read the log file into memory
+    try:
+        with open(log_filename, 'r') as file:
+            log_lines = file.readlines()
+    except Exception as e:
+        print(f"An error occurred while reading the log file: {e}")
+        sys.exit()
+
+    return log_lines
 
 def loadConfig():
     display_settings = {
@@ -75,6 +92,10 @@ def run():
     display_settings, log_filename = loadConfig()
     #print("Display Settings:", display_settings)
     #print("Log Filename:", log_filename)
+    log_lines = read_log_file(log_filename)
+    # Print the first 5 log lines to verify
+    for line in log_lines[:5]:
+        print(line.strip())
     
 
 if __name__ == "__main__":
