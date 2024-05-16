@@ -22,6 +22,20 @@ class entryLog:
     def __str__(self):
         return f"{self.ip} {self.clientID} {self.userID} {self.time} {self.request} {self.statusCode} {self.size} {self.referer} {self.userAgent}"
 
+def print_total_bytes(log_entries, filter):
+    # Regular expression pattern
+    regex_pattern = r'([^ ]+)'
+
+    total_size = 0
+
+    for entry in log_entries:
+        if entry is not None:
+            match = re.match(regex_pattern, entry.request).group(1)
+            if match == filter:
+                total_size+=entry.size
+    
+    return total_size
+
 def print_requests_by_browser(log_entries, browser):
     count = 0
     for entry in log_entries:
@@ -84,13 +98,9 @@ def parse_log_line(log_line):
 
         # Create entryLog object
         log_entry = entryLog(ip, clientID, userID, time, request, statusCode, size, referer, userAgent)
-        
-        print(log_entry)
 
         return log_entry
     else:
-        print("No match found")
-
         return None
 
 def read_log_file(log_filename):
@@ -135,7 +145,6 @@ def loadConfig():
 
     for line in configFile.readlines():
         line = line.rstrip()
-        print(line)
         if not line or line.startswith('#'):
             continue  # Skip empty lines and comments
         
@@ -181,17 +190,13 @@ def run():
 
     log_lines = read_log_file(log_filename)
 
-    # Print the first 5 log lines to verify
-    for line in log_lines:
-        print(line.strip())
-
-    # Parse the first 5 log lines
     log_entries = parse_log_file(log_lines)
-    print(log_entries)
 
-    print_requests_by_ip(log_entries, subnet, display_settings['lines'])
+    #print_requests_by_ip(log_entries, subnet, display_settings['lines'])
 
-    print_requests_by_browser(log_entries, 'Mozilla')
+    #print_requests_by_browser(log_entries, 'Mozilla')
+
+    #print(print_total_bytes(log_entries, display_settings['filter']))
     
 if __name__ == "__main__":
     run()
