@@ -1,0 +1,29 @@
+app7.py:9:1: E302 expected 2 blank lines, found 1
+app7.py:11:80: E501 line too long (98 > 79 characters)
+app7.py:21:1: W293 blank line contains whitespace
+app7.py:23:80: E501 line too long (146 > 79 characters)
+app7.py:25:1: E302 expected 2 blank lines, found 1
+app7.py:35:27: E225 missing whitespace around operator
+app7.py:36:1: W293 blank line contains whitespace
+app7.py:39:1: E302 expected 2 blank lines, found 1
+app7.py:44:1: W293 blank line contains whitespace
+app7.py:45:1: E302 expected 2 blank lines, found 1
+app7.py:54:1: E302 expected 2 blank lines, found 1
+app7.py:59:1: E302 expected 2 blank lines, found 1
+app7.py:66:1: E302 expected 2 blank lines, found 1
+app7.py:94:1: W293 blank line contains whitespace
+app7.py:100:80: E501 line too long (103 > 79 characters)
+app7.py:106:1: E302 expected 2 blank lines, found 1
+app7.py:124:1: E302 expected 2 blank lines, found 1
+app7.py:142:1: W293 blank line contains whitespace
+app7.py:150:1: W293 blank line contains whitespace
+app7.py:169:1: W293 blank line contains whitespace
+app7.py:171:1: W293 blank line contains whitespace
+app7.py:178:80: E501 line too long (83 > 79 characters)
+app7.py:183:1: E302 expected 2 blank lines, found 1
+app7.py:195:5: E265 block comment should start with '# '
+app7.py:197:5: E265 block comment should start with '# '
+app7.py:199:5: E265 block comment should start with '# '
+app7.py:200:1: W293 blank line contains whitespace
+app7.py:201:1: E305 expected 2 blank lines after class or function definition, found 1
+app7.py:203:1: W391 blank line at end of file
